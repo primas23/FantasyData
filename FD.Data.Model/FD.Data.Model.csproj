@@ -48,14 +48,6 @@
     <Compile Include="CurrentEventFixture.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerType.cs" />
-    <Compile Include="Formations.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="GameSettings.cs" />
-    <Compile Include="GameSettingsElementType.cs" />
-    <Compile Include="GameSettingsElementType1.cs" />
-    <Compile Include="GameSettingsElementType2.cs" />
-    <Compile Include="GameSettingsElementType3.cs" />
-    <Compile Include="GameSettingsElementType4.cs" />
     <Compile Include="NextEventFixture.cs" />
     <Compile Include="Phase.cs" />
     <Compile Include="PlayersInformation.cs" />
