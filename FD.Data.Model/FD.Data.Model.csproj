@@ -46,8 +46,8 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="CurrentEventFixture.cs" />
-    <Compile Include="Element.cs" />
-    <Compile Include="ElementType.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerType.cs" />
     <Compile Include="Formations.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameSettings.cs" />
