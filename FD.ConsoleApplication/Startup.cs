@@ -22,9 +22,7 @@ namespace FD.ConsoleApplication
         /// </summary>
         public static void Main()
         {
-            
+            FantasyPremierLeague.AddOrUpdateDataBase();
         }
-
-        
     }
 }
