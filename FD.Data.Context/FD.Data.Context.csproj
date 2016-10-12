@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FdContext.cs" />
+    <Compile Include="Migrations\201610121438464_RemovedGameClasses.cs" />
+    <Compile Include="Migrations\201610121438464_RemovedGameClasses.Designer.cs">
+      <DependentUpon>201610121438464_RemovedGameClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +66,11 @@
       <Project>{c32a9d64-2248-411b-8bcc-f847cbccda91}</Project>
       <Name>FD.Data.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610121438464_RemovedGameClasses.resx">
+      <DependentUpon>201610121438464_RemovedGameClasses.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
