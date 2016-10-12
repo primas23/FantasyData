@@ -1,16 +1,16 @@
-﻿// <copyright file="PlayerInformation.cs" company="Primas">
+﻿// <copyright file="FdContext.cs" company="Primas">
 //     Company copyright tag.
 // </copyright>
-namespace FD.Data.Model
+namespace FD.Data.Context
 {
-    using System.Collections.Generic;
+    using System.Data.Entity;
 
-    using Newtonsoft.Json;
+    using FD.Data.Model;
 
     /// <summary>
-    /// The PlayerInformation class
+    /// The Data context of the application
     /// </summary>
-    public class PlayersInformation
+    public class FdContext : DbContext
     {
         /// <summary>
         /// Gets or sets the phases.
@@ -18,8 +18,7 @@ namespace FD.Data.Model
         /// <value>
         /// The phases.
         /// </value>
-        [JsonProperty("phases")]
-        public virtual IList<Phase> Phases { get; set; }
+        public virtual IDbSet<Phase> Phases { get; set; }
 
         /// <summary>
         /// Gets or sets the players.
@@ -27,8 +26,7 @@ namespace FD.Data.Model
         /// <value>
         /// The players.
         /// </value>
-        [JsonProperty("elements")]
-        public virtual IList<Player> Players { get; set; }
+        public virtual IDbSet<Player> Players { get; set; }
         
         /// <summary>
         /// Gets or sets the teams.
@@ -36,8 +34,7 @@ namespace FD.Data.Model
         /// <value>
         /// The teams.
         /// </value>
-        [JsonProperty("teams")]
-        public virtual IList<Team> Teams { get; set; }
+        public virtual IDbSet<Team> Teams { get; set; }
 
         /// <summary>
         /// Gets or sets the player types.
@@ -45,8 +42,7 @@ namespace FD.Data.Model
         /// <value>
         /// The player types.
         /// </value>
-        [JsonProperty("element_types")]
-        public virtual IList<PlayerType> PlayerTypes { get; set; }
+        public virtual IDbSet<PlayerType> PlayerTypes { get; set; }
 
         /// <summary>
         /// Gets or sets the events.
@@ -54,7 +50,6 @@ namespace FD.Data.Model
         /// <value>
         /// The events.
         /// </value>
-        [JsonProperty("events")]
-        public virtual IList<Event> Events { get; set; }
+        public virtual IDbSet<Event> Events { get; set; }
     }
 }
