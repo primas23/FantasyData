@@ -136,7 +136,7 @@ namespace FD.Data.Model
         /// The default formation.
         /// </value>
         [JsonProperty("default_formation")]
-        public IList<IList<int>> DefaultFormation { get; set; }
+        public virtual IList<IList<int>> DefaultFormation { get; set; }
 
         /// <summary>
         /// Gets or sets the BPS long play.

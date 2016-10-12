@@ -100,6 +100,6 @@ namespace FD.Data.Model
         /// The sub positions locked.
         /// </value>
         [JsonProperty("sub_positions_locked")]
-        public IList<int> SubPositionsLocked { get; set; }
+        public virtual IList<int> SubPositionsLocked { get; set; }
     }
 }

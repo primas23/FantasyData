@@ -28,7 +28,7 @@ namespace FD.Data.Model
         /// The current event fixture.
         /// </value>
         [JsonProperty("current_event_fixture")]
-        public IList<CurrentEventFixture> CurrentEventFixture { get; set; }
+        public virtual IList<CurrentEventFixture> CurrentEventFixture { get; set; }
 
         /// <summary>
         /// Gets or sets the next event fixture.
@@ -37,7 +37,7 @@ namespace FD.Data.Model
         /// The next event fixture.
         /// </value>
         [JsonProperty("next_event_fixture")]
-        public IList<NextEventFixture> NextEventFixture { get; set; }
+        public virtual IList<NextEventFixture> NextEventFixture { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

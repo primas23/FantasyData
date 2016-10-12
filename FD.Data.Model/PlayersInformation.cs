@@ -10,7 +10,7 @@ namespace FD.Data.Model
     /// <summary>
     /// The PlayerInformation class
     /// </summary>
-    public class PlayerInformation
+    public class PlayersInformation
     {
         /// <summary>
         /// Gets or sets the phases.
@@ -19,7 +19,7 @@ namespace FD.Data.Model
         /// The phases.
         /// </value>
         [JsonProperty("phases")]
-        public IList<Phase> Phases { get; set; }
+        public virtual IList<Phase> Phases { get; set; }
 
         /// <summary>
         /// Gets or sets the players.
@@ -28,7 +28,7 @@ namespace FD.Data.Model
         /// The players.
         /// </value>
         [JsonProperty("elements")]
-        public IList<Player> Players { get; set; }
+        public virtual IList<Player> Players { get; set; }
 
         /// <summary>
         /// Gets or sets the game settings.
@@ -37,7 +37,7 @@ namespace FD.Data.Model
         /// The game settings.
         /// </value>
         [JsonProperty("game-settings")]
-        public GameSettings GameSettings { get; set; }
+        public virtual GameSettings GameSettings { get; set; }
 
         /// <summary>
         /// Gets or sets the total players.
@@ -55,7 +55,7 @@ namespace FD.Data.Model
         /// The teams.
         /// </value>
         [JsonProperty("teams")]
-        public IList<Team> Teams { get; set; }
+        public virtual IList<Team> Teams { get; set; }
 
         /// <summary>
         /// Gets or sets the player types.
@@ -64,7 +64,7 @@ namespace FD.Data.Model
         /// The player types.
         /// </value>
         [JsonProperty("element_types")]
-        public IList<PlayerType> PlayerTypes { get; set; }
+        public virtual IList<PlayerType> PlayerTypes { get; set; }
 
         /// <summary>
         /// Gets or sets the events.
@@ -73,6 +73,6 @@ namespace FD.Data.Model
         /// The events.
         /// </value>
         [JsonProperty("events")]
-        public IList<Event> Events { get; set; }
+        public virtual IList<Event> Events { get; set; }
     }
 }

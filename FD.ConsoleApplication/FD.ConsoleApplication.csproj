@@ -48,6 +48,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FD.Data.Model\FD.Data.Model.csproj">
+      <Project>{c32a9d64-2248-411b-8bcc-f847cbccda91}</Project>
+      <Name>FD.Data.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FD.WebCrawler\FD.WebCrawler.csproj">
+      <Project>{929a269a-2eb1-4409-a3bc-92ce9360dab3}</Project>
+      <Name>FD.WebCrawler</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
