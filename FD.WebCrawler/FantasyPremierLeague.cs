@@ -4,6 +4,7 @@
 namespace FD.WebCrawler
 {
     using System.Collections.Generic;
+    using System.Data;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.IO;
@@ -12,24 +13,28 @@ namespace FD.WebCrawler
 
     using Newtonsoft.Json;
 
+    using FD.Data.Common.Contracts;
     using FD.Data.Context;
     using FD.Data.Model;
-    
+
     /// <summary>
     /// The Fantasy Premier League Information
     /// </summary>
     public static class FantasyPremierLeague
     {
+        /// <summary>
+        /// The URL for the fantasy premierleague 
+        /// </summary>
         private const string Url = "https://fantasy.premierleague.com/drf/bootstrap-static";
 
         /// <summary>
         /// Gets the players information from web.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The PlayersInformation</returns>
         public static PlayersInformation GetPlayersInformationFromWeb()
         {
             PlayersInformation informations = new PlayersInformation();
-            
+
             WebRequest webRequest = WebRequest.Create(Url);
 
             using (StreamReader objStream = new StreamReader(webRequest.GetResponse().GetResponseStream()))
@@ -37,6 +42,12 @@ namespace FD.WebCrawler
                 string json = objStream.ReadToEnd();
                 informations = JsonConvert.DeserializeObject<PlayersInformation>(json);
             }
+
+            ValidateDuplicateIds(informations.Phases);
+            ValidateDuplicateIds(informations.Players);
+            ValidateDuplicateIds(informations.Teams);
+            ValidateDuplicateIds(informations.PlayerTypes);
+            ValidateDuplicateIds(informations.Events);
 
             return informations;
         }
@@ -65,17 +76,7 @@ namespace FD.WebCrawler
         public static void AddOrUpdateDataBase()
         {
             PlayersInformation information = GetPlayersInformationFromWeb();
-
-            using (var db = new FdContext())
-            {
-                AddOrUpdateDbCollection(information.Phases, db.Phases);
-                AddOrUpdateDbCollection(information.Players, db.Players);
-                AddOrUpdateDbCollection(information.Teams, db.Teams);
-                AddOrUpdateDbCollection(information.PlayerTypes, db.PlayerTypes);
-                AddOrUpdateDbCollection(information.Events, db.Events);
-
-                db.SaveChanges();
-            }
+            AddOrUpdateDataBase(information);
         }
 
         /// <summary>
@@ -89,6 +90,22 @@ namespace FD.WebCrawler
             list
                 .ToList()
                 .ForEach(p => dbSet.AddOrUpdate(p));
+        }
+
+        /// <summary>
+        /// Validates for duplicate ids.
+        /// </summary>
+        /// <typeparam name="T">Any class that has implemented IIdentifier of int</typeparam>
+        /// <param name="list">The list.</param>
+        /// <exception cref="DuplicateNameException">There are duplicate ids !</exception>
+        private static void ValidateDuplicateIds<T>(IList<T> list) where T : IIdentifier<int>
+        {
+            HashSet<int> hashSet = new HashSet<int>(list.Select(i => i.Id));
+
+            if (hashSet.Count != list.Count)
+            {
+                throw new DuplicateNameException("There are duplicate ids !");
+            }
         }
     }
 }

@@ -5,10 +5,12 @@ namespace FD.Data.Model
 {
     using Newtonsoft.Json;
 
+    using FD.Data.Common.Contracts;
+
     /// <summary>
     /// The Player class
     /// </summary>
-    public class Player
+    public class Player : IIdentifier<int>
     {
         /// <summary>
         /// Gets or sets the identifier.

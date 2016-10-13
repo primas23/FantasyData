@@ -7,10 +7,12 @@ namespace FD.Data.Model
 
     using Newtonsoft.Json;
 
+    using FD.Data.Common.Contracts;
+
     /// <summary>
     /// The Team class
     /// </summary>
-    public class Team
+    public class Team : IIdentifier<int>
     {
         /// <summary>
         /// Gets or sets the identifier.

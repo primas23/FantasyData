@@ -7,10 +7,12 @@ namespace FD.Data.Model
 
     using Newtonsoft.Json;
 
+    using FD.Data.Common.Contracts;
+
     /// <summary>
     /// The event class
     /// </summary>
-    public class Event
+    public class Event : IIdentifier<int>
     {
         /// <summary>
         /// Gets or sets the identifier.

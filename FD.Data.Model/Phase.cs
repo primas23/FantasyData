@@ -5,10 +5,12 @@ namespace FD.Data.Model
 {
     using Newtonsoft.Json;
 
+    using FD.Data.Common.Contracts;
+
     /// <summary>
     /// The Phase class
     /// </summary>
-    public class Phase
+    public class Phase : IIdentifier<int>
     {
         /// <summary>
         /// Gets or sets the identifier.
