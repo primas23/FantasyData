@@ -57,7 +57,7 @@ namespace FD.WebCrawler
         }
 
         /// <summary>
-        /// Adds or updates the data base.
+        /// Adds or updates the data base. It is tightly coupled to the FdContext.
         /// </summary>
         /// <param name="information">The information.</param>
         public static void AddOrUpdateDataBase(PlayersInformation information)
