@@ -45,13 +45,13 @@ namespace FD.WebCrawler
                     string json = objStream.ReadToEnd();
                     informations = JsonConvert.DeserializeObject<PlayersInformation>(json);
                 }
-            }
 
-            ValidateDuplicateIds(informations.Phases);
-            ValidateDuplicateIds(informations.Players);
-            ValidateDuplicateIds(informations.Teams);
-            ValidateDuplicateIds(informations.PlayerTypes);
-            ValidateDuplicateIds(informations.Events);
+                ValidateDuplicateIds(informations.Phases);
+                ValidateDuplicateIds(informations.Players);
+                ValidateDuplicateIds(informations.Teams);
+                ValidateDuplicateIds(informations.PlayerTypes);
+                ValidateDuplicateIds(informations.Events);
+            }
 
             return informations;
         }
