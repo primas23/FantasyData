@@ -1,4 +1,4 @@
-﻿// <copyright file="IId.cs" company="Primas">
+﻿// <copyright file="IIdentifier.cs" company="Primas">
 //     Company copyright tag.
 // </copyright>
 namespace FD.Data.Common.Contracts

@@ -1,4 +1,4 @@
-﻿// <copyright file="Startup.cs" company="Primas">
+﻿// <copyright file="FantasyPremierLeague.cs" company="Primas">
 //     Company copyright tag.
 // </copyright>
 namespace FD.WebCrawler
@@ -23,14 +23,14 @@ namespace FD.WebCrawler
     public static class FantasyPremierLeague
     {
         /// <summary>
-        /// The URL for the fantasy premierleague 
+        /// The URL for the fantasy premier league 
         /// </summary>
         private const string Url = "https://fantasy.premierleague.com/drf/bootstrap-static";
 
         /// <summary>
         /// Gets the players information from web.
         /// </summary>
-        /// <returns>The PlayersInformation</returns>
+        /// <returns>The Players Information</returns>
         public static PlayersInformation GetPlayersInformationFromWeb()
         {
             PlayersInformation informations = new PlayersInformation();
@@ -95,7 +95,7 @@ namespace FD.WebCrawler
         /// <summary>
         /// Validates for duplicate ids.
         /// </summary>
-        /// <typeparam name="T">Any class that has implemented IIdentifier of int</typeparam>
+        /// <typeparam name="T">Any class that has implemented IIdentifier of integer</typeparam>
         /// <param name="list">The list.</param>
         /// <exception cref="DuplicateNameException">There are duplicate ids !</exception>
         private static void ValidateDuplicateIds<T>(IList<T> list) where T : IIdentifier<int>

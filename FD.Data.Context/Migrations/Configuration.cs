@@ -9,7 +9,7 @@ namespace FD.Data.Context.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(FD.Data.Context.FdContext context)
