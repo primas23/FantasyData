@@ -36,11 +36,15 @@ namespace FD.WebCrawler
             PlayersInformation informations = new PlayersInformation();
 
             WebRequest webRequest = WebRequest.Create(Url);
-
-            using (StreamReader objStream = new StreamReader(webRequest.GetResponse().GetResponseStream()))
+            var responseStream = webRequest.GetResponse().GetResponseStream();
+            
+            if (responseStream != null)
             {
-                string json = objStream.ReadToEnd();
-                informations = JsonConvert.DeserializeObject<PlayersInformation>(json);
+                using (StreamReader objStream = new StreamReader(responseStream))
+                {
+                    string json = objStream.ReadToEnd();
+                    informations = JsonConvert.DeserializeObject<PlayersInformation>(json);
+                }
             }
 
             ValidateDuplicateIds(informations.Phases);
@@ -97,14 +101,14 @@ namespace FD.WebCrawler
         /// </summary>
         /// <typeparam name="T">Any class that has implemented IIdentifier of integer</typeparam>
         /// <param name="list">The list.</param>
-        /// <exception cref="DuplicateNameException">There are duplicate ids !</exception>
+        /// <exception cref="DuplicateNameException">There are duplicate ids!</exception>
         private static void ValidateDuplicateIds<T>(IList<T> list) where T : IIdentifier<int>
         {
             HashSet<int> hashSet = new HashSet<int>(list.Select(i => i.Id));
 
             if (hashSet.Count != list.Count)
             {
-                throw new DuplicateNameException("There are duplicate ids !");
+                throw new DuplicateNameException("There are duplicate ids!");
             }
         }
     }
